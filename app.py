@@ -5,7 +5,8 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.linear_model import LogisticRegression
 
 # Load dataset
-df = pd.read_csv(".vscode/Tuberculosis/dataset/Healthcare.csv")
+
+df = pd.read_csv("Dataset/Healthcare.csv")
 
 # Create TB column
 df["TB"] = df["Disease"].apply(lambda x: 1 if x == "Tuberculosis" else 0)
