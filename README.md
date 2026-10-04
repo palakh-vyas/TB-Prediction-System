@@ -1,16 +1,16 @@
-# 🫁 Tuberculosis (TB) Risk Screening System
+# Tuberculosis (TB) Risk Screening System
 
 A machine learning web app that estimates a person's TB risk from their **symptoms, age and gender**, and returns a risk percentage with a low / medium / high band.
 
-> ⚠️ **Disclaimer:** This is an academic screening aid, not a medical diagnosis. Always consult a doctor.
+> **Disclaimer:** This is an academic screening aid, not a medical diagnosis. Always consult a doctor.
 
 ---
 
-## 📌 Problem Statement
+## Problem Statement
 
 Tuberculosis is a serious infectious disease, and early screening helps patients reach treatment sooner. This project builds a simple symptom-based screening tool and, more importantly, evaluates it properly for a **highly imbalanced** problem, where only about 3% of patients have TB.
 
-## ✨ Features
+## Features
 
 - Tick-box symptom selection, plus age and gender inputs (no typing errors)
 - Risk **percentage** with a colour-coded band (low / medium / high)
@@ -20,11 +20,11 @@ Tuberculosis is a serious infectious disease, and early screening helps patients
 - Model trained once and saved, so the app loads instantly
 - Model Performance and About tabs inside the app
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 Python · pandas · NumPy · scikit-learn · joblib · Streamlit
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 TB-Prediction-System/
@@ -43,7 +43,7 @@ TB-Prediction-System/
 └── README.md
 ```
 
-## 🔄 How It Works
+## How It Works
 
 ```
 Healthcare.csv → clean + encode symptoms, age, gender
@@ -56,7 +56,7 @@ Healthcare.csv → clean + encode symptoms, age, gender
 
 **Why recall?** In screening, missing a real TB patient is worse than a false alarm, so the model is chosen by how many TB cases it catches.
 
-## 📊 Results
+## Results
 
 Test set: 5,000 patients (20% split), TB = 3.3% of the data.
 
@@ -71,10 +71,10 @@ Best model by recall: **Logistic Regression**.
 ### Why accuracy was not used
 An earlier version of this project reported about 96.7% accuracy, but it simply predicted "not TB" for everyone and caught **0** TB cases. Accuracy hides this on imbalanced data, which is why recall, precision and ROC-AUC are reported here.
 
-### ⚠️ Dataset limitation
+### Dataset limitation
 The dataset appears to be **synthetic**: symptom patterns are nearly identical across all 30 diseases, and a 30-class model scores at chance level. ROC-AUC near 0.5 therefore reflects the data, not the code. This project demonstrates a complete, correctly evaluated ML pipeline; results on real clinical data would differ and should be validated by medical professionals.
 
-## 🚀 How to Run
+## How to Run
 
 **Option 1: Locally**
 ```bash
@@ -88,13 +88,29 @@ streamlit run app.py
 **Option 2: Google Colab**
 Open `TB-Prediction-System.ipynb`, run the cells in order, then start the app with a cloudflared tunnel.
 
-## 📸 Screenshots
+## Screenshots
 
 | Prediction | Model Performance |
 |---|---|
-| _add screenshot_ | _add screenshot_ |
+## 📸 Screenshots
 
-## 🔮 Future Scope
+### Prediction tab
+Select age, gender and symptoms, then get a risk percentage and band.
+
+![Prediction tab](<img width="1530" height="691" alt="Screenshot 2026-10-04 150354" src="https://github.com/user-attachments/assets/fcdd3935-655a-4f57-9618-fbdbf2e8950e" />
+)
+
+### Model Performance tab
+Comparison of the three models.
+
+![Model Performance tab](screenshot_performance.png)
+
+### About tab
+Project summary and limitations.
+
+![About tab](screenshot_about.png)
+
+## Future Scope
 
 - Train on a real, clinically validated TB dataset
 - Add chest X-ray analysis with a CNN
@@ -102,6 +118,6 @@ Open `TB-Prediction-System.ipynb`, run the cells in order, then start the app wi
 - Store prediction history in a database
 - Deploy permanently on Streamlit Community Cloud
 
-## 👤 Author
+##  Author
 
-Your Name · Your College · Final Year Project, 2026
+Palakh Vyas·Vellore Institute Of Technology 
